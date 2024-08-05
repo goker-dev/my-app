@@ -10,7 +10,7 @@ export function Component() {
         <h1 className='text-lg font-semibold uppercase'>{t('About Us')}</h1>
       </Divider>
       <div className='flex my-8'>
-        <p>{t('This is a sample page.')}</p>
+        <p>{t('This is my page.')}</p>
       </div>
     </div>
   );
