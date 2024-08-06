@@ -1,6 +1,6 @@
-describe('Test a view', () => {
+describe('Test a view like mobile', () => {
   beforeEach(async () => {
-    cy.viewport('macbook-13');
+    cy.viewport('iphone-x');
 
     // From https://github.com/cypress-io/cypress/issues/702#issuecomment-435873135
     if (!window.navigator || !navigator.serviceWorker) {
@@ -20,12 +20,6 @@ describe('Test a view', () => {
         window.localStorage.setItem('undefined-cookies', 'true');
       },
     });
-
-    cy.wait(500);
-
-    cy.get('.layout-header a[href="/about"]').click();
-    cy.get('main').contains('This is my page');
-
     cy.wait(500);
 
     cy.get('[data-cy="reload-prompt"]').then(($prompt) => {
@@ -38,7 +32,12 @@ describe('Test a view', () => {
 
     cy.wait(500);
 
-    cy.get('#desktop-localization').find('select').select('tr');
+    cy.get('#navbar-switch').click();
+    cy.get('.layout-header a[href="/about"]').click();
+    cy.get('main').contains('This is my page');
+    cy.get('#navbar-switch').click(); // open navigation
+    cy.get('#mobile-localization').find('select').select('tr');
+    cy.get('#navbar-switch').click(); // close navigation
     cy.wait(500);
     cy.get('main').contains('Benim sayfam');
   });

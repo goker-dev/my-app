@@ -27,6 +27,7 @@ export default function Header({ className = '' }: Props) {
           <div className='sm:hidden flex items-center justify-center gap-y-2'>
             <ThemeSwitch />
             <button
+              id='navbar-switch'
               type='button'
               className='p-2 inline-flex justify-center items-center gap-2 rounded-md font-medium align-middle'
               aria-controls='navbar-collapse-with-animation'
@@ -55,7 +56,10 @@ export default function Header({ className = '' }: Props) {
                 {text}
               </NavLink>
             ))}
-            <div className='py-3 px-4 border-t border-white/15 flex items-end justify-end sm:hidden'>
+            <div
+              id='mobile-localization'
+              className='py-3 px-4 border-t border-white/15 flex items-end justify-end sm:hidden'
+            >
               <Localization className='text-lg' />
             </div>
           </div>
@@ -65,7 +69,10 @@ export default function Header({ className = '' }: Props) {
           <div className='whitespace-nowrap divide-x pl-2 hidden sm:block'>
             <ThemeSwitch />
           </div>
-          <div className='whitespace-nowrap divide-x pl-2 hidden sm:block'>
+          <div
+            id='desktop-localization'
+            className='whitespace-nowrap divide-x pl-2 hidden sm:block'
+          >
             <Localization />
           </div>
         </>

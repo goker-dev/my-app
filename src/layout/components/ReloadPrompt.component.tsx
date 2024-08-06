@@ -22,7 +22,10 @@ export default function Reload() {
   };
 
   return (
-    <div className='absolute top-0 right-0 w-full md:w-1/2 xl:w-1/3 z-50 xl:text-sm'>
+    <div
+      data-cy='reload-prompt'
+      className='absolute top-0 right-0 w-full md:w-1/2 xl:w-1/3 z-50 xl:text-sm'
+    >
       {(offlineReady || needRefresh) && (
         <div
           className='m-4 xl:m-2 p-4 xl:p-2 xl:pl-4 rounded-xl bg-amber-500 border-4 border-amber-600 shadow
@@ -38,13 +41,18 @@ export default function Reload() {
           <div>
             {needRefresh ? (
               <button
+                data-cy='reload'
                 className='ml-4 button button-sm button-red'
                 onClick={() => updateServiceWorker(true)}
               >
                 {t('Reload')}
               </button>
             ) : (
-              <button className='ml-4 button button-sm button-red' onClick={() => close()}>
+              <button
+                data-cy='close'
+                className='ml-4 button button-sm button-red'
+                onClick={() => close()}
+              >
                 {t('Close')}
               </button>
             )}
